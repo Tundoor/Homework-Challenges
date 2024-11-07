@@ -4,7 +4,7 @@ const holidays = {
     0: {
         id: 0,
         name: 'Day of Reconciliation',
-        date: `16 December ${currentYear}`,
+        date: new Date (`16 December ${currentYear}`),
     },
     1: {
         id: 1,
@@ -53,6 +53,7 @@ const futureId = 9
 
 // Do not change code above this comment
 
+holidays.futureId = 9
 console.log(holidays.futureId.name || `ID ${futureId} not created yet`)
 
 let copied = holidays.christmas
@@ -101,15 +102,15 @@ const lastHolidayTimestamp = Math.max(
 
 const firstHoliday = new Date (firstHolidayTimestamp)
 const lastHoliday = new Date (lastHolidayTimestamp)
-const firstDay = firstHoliday.getDate()
-const firstMonth = firstHoliday.getMonth()
-const lastDay = lastHoliday.getDate()
-const lastMonth = lastHoliday.getMonth()
+const firstDay = String(firstHoliday.getDate()).padStart(2, 0)
+const firstMonth = String(firstHoliday.getMonth() + 1).padStart(2, 0) 
+const lastDay = String(lastHoliday.getDate()).padStart(2,0)
+const lastMonth = String(lastHoliday.getMonth() + 1).padStart(2, 0)
 
 console.log(`${firstDay}/${firstMonth}/${currentYear}`)
 console.log(`${lastDay}/${lastMonth}/${currentYear}`)
 
-const randomHoliday = holidays[Math.random].date
-const randomDay = randomHoliday.getDate()
-const randomMonth = randomHoliday.getMonth()
+const randomHoliday = holidays[Math.floor(Math.random() * (8 + 1))].date
+const randomDay = String(randomHoliday.getDate()).padStart(2, 0)
+const randomMonth = String(randomHoliday.getMonth() + 1).padStart(2,0) 
 console.log(`${randomDay}/${randomMonth}/${currentYear}`)
