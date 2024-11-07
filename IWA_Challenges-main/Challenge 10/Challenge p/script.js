@@ -1,34 +1,50 @@
 //Only change below JS, not the HTML
 
-const 1-root = document(order1),
-const 1-biscuits: document(biscuits),
-const 1-donuts: document(donuts),
-const 1-pancakes: document(pancakes),
-const 1-status: document(status)
+     root1 = document.querySelector('dl[data-key = "order1"]')
+     biscuits1= root1.querySelector('.biscuits .count')
+     donuts1= root1.querySelector('.donuts .count')
+     pancakes1= root1.querySelector('.pancakes .count')
+     status1= root1.querySelector('.status')
 
-const 2-root = document(order2),
-const 2-biscuits: document(biscuits),
-const 2-donuts: document(donuts),
-const 2-pancakes: document(pancakes),
-const 2-status: document(status)
+    root2 = document.querySelector('dl[data-key = "order2"]')
+    biscuits2 = root2.querySelector('.biscuits .count')
+    donuts2 = root2.querySelector('.donuts .count')
+    pancakes2 = root2.querySelector('.pancakes .count')
+    status2 = root2.querySelector('.status')
 
-const 3-root = document(order3),
-const 3-biscuits: document(biscuits),
-const 3-donuts: document(donuts),
-const 3-pancakes: document(pancakes),
-const 3-status: document(status)
 
-1-biscuits= 1-root.biscuits,
-1-donuts = 1-root.donuts,
-1-pancakes = 1-root.pancakes,
-1-status = 1-root.status ? Delivered : Pending
+    root3 = document.querySelector('dl[data-key = "order3"]')
+    biscuits3= root3.querySelector('.biscuits .count')
+    donuts3= root3.querySelector('.donuts .count')
+    pancakes3= root3.querySelector('.pancakes .count')
+    status3= root3.querySelector('.status')
 
-2-biscuits= 2-root.biscuits,
-2-donuts = 2-root.donuts,
-2-pancakes = 2-root.pancakes,
-2-status = 2-root.status ? Delivered : Pending
 
-3-biscuits= 3-root.biscuits,
-3-donuts = 3-root.donuts,
-3-pancakes = 3-root.pancakes,
-3-status = 3-root.status ? Delivered : Pending
+biscuits1.textContent = root1.getAttribute('data-biscuits')
+donuts1.textContent = root1.getAttribute("data-donuts")
+pancakes1.textContent = root1.getAttribute('data-pancakes')
+
+// gets the dd tag
+status1.getElementsByTagName('dd')[0].id = "close1"
+statusOne = document.getElementById('close1')
+statusOne.textContent = root1.getAttribute('data-delivered') === "true"? 'Delivered' : 'Pending'
+
+biscuits2.textContent = root2.getAttribute('data-biscuits')
+donuts2.textContent = root2.getAttribute("data-donuts")
+pancakes2.textContent = root2.getAttribute('data-pancakes')
+
+// gets the dd tag
+status2.getElementsByTagName('dd')[0].id = "close2"
+statusTwo = document.getElementById("close2")
+statusTwo.textContent = root2.getAttribute('data-delivered') === "true"? 'Delivered' : 'Pending'
+
+
+biscuits3.textContent = root3.getAttribute('data-biscuits')
+donuts3.textContent = root3.getAttribute("data-donuts")
+pancakes3.textContent = root3.getAttribute('data-pancakes')
+
+// gets the dd tag
+status3.getElementsByTagName('dd')[0].id = "close3"
+statusThree = document.getElementById("close3")
+statusThree.textContent = root3.getAttribute('data-delivered') === "true"? 'Delivered' : 'Pending'
+
