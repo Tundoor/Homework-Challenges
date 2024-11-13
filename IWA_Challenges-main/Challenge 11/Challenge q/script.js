@@ -29,35 +29,45 @@ const STATUS_MAP = {
 
 // Edit below line only
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+ const books = [
+{
+    status : document.queryselector('#book1 .status').innerText,
+    html : {
+        reserve:document.querySelector('#book1 .reserve'),
+        checkout:document.querySelector('#book1 .checkout'),
+        checkin:document.querySelectorselector("#book1 .checkin") 
+    } 
+},
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+{
+    status : document.queryselector('#book2 .status').innerText,
+    html : {
+        reserve:document.querySelector('#book2 .reserve'),
+        checkout:document.querySelector('#book2 .checkout'),
+        checkin:document.querySelectorselector("#book2 .checkin") 
+    } 
+},
+ 
+{
+    status : document.queryselector('#book3 .status').innerText,
+    html : {
+        reserve:document.querySelector('#book3 .reserve'),
+        checkout:document.querySelector('#book3 .checkout'),
+        checkin:document.querySelectorselector("#book3 .checkin") 
+    } 
+}
 
-status = selector(status)
-reserve = selector(reserve)
-checkout = selector(checkout)
-checkin = selector(checkin)
+]
 
-checkin.0.color = none
-status.0.style.color = STATUS_MAP.status.color
-reserve.0 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.0 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.0 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+books.forEach((book) => {
+    // Get the status details from STATUS_MAP based on the current book's status
+    const statusDetails = STATUS_MAP[book.status];
 
-checkin.1.color = none
-status.1.style.color = STATUS_MAP.status.color
-reserve.1 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.1 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.1 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+    // Set the color of the status element
+    book.html.status.style.color = statusDetails.color;
 
-checkin.2.color = none
-status.2.style.color = STATUS_MAP.status.color
-reserve.2 = STATUS_MAP.status.canReserver ? 'enabled' : 'disabled'
-checkout.2 = STATUS_MAP.status.canCheckout ? 'enabled' : 'disabled'
-checkin.2 = STATUS_MAP.status.canCheckIn ? 'enabled' : 'disabled'
+    // Enable or disable buttons based on status
+    book.html.reserve.disabled = !statusDetails.canReserve;
+    book.html.checkout.disabled = !statusDetails.canCheckout;
+    book.html.checkin.disabled = !statusDetails.canCheckIn;
+});
